@@ -9,7 +9,7 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
 const OAuth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    'http://localhost:3000/api/auth/google/callback'
+    'https://backend-eight-phi-75.vercel.app/api/auth/google/callback'
 );
 
 const scopes = [
@@ -147,6 +147,7 @@ const googleCallback = async (req, res) => {
 
         // Kembalikan token ke pengguna
         res.json({ message: 'Login successful', token });
+        res.redirect('https://proyek-3-proyek.github.io/tokline.github.io/index.html');
 
     } catch (error) {
         res.status(500).json({ message: 'Error logging in with Google', error: error.message });

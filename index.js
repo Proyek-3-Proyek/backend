@@ -2,9 +2,11 @@ const express = require('express');
 const authRoutes = require('./routes/authRoutes');
 const kategoriRoutes = require('./routes/kategoriRoutes');
 const produkRoutes = require('./routes/produkRoutes');
+const configureMiddleware = require('./middlewares/corsMiddleware');
 require('dotenv').config();
 
 const app = express();
+configureMiddleware(app);
 
 // Middleware
 app.use(express.json());
